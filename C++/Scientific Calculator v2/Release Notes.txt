@@ -16,10 +16,10 @@ Version 1.0 :-
 	Laogarithm (base 10)
 
 Version 2.0:-
-	Repititions over main Interface
+	Repetitions over main Interface
 
 Version 2.1:-
-	Repititions over sub-Interface + Repititions over main Interface
+	Repetitions over sub-Interface + Repititions over main Interface
 
 Version 2.2:- {BETA VERSION}
 
