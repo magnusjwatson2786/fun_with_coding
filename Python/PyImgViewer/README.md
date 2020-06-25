@@ -4,7 +4,7 @@ I created this simple Image Viewer using PyQt5 while learning to create better G
 
 
 # Screenshot
-!(Screenshots/img1.jpg?raw=true "Title")
+![Alt text](Screenshots/img1.jpg?raw=true "Title")
 
 
 ## Built With
