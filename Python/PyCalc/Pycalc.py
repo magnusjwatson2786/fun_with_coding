@@ -1,16 +1,14 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'calcgui.ui'
-#
-# Created by: PyQt5 UI code generator 5.13.0
-#
-# WARNING! All changes made in this file will be lost!
-
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_MainWindow(object):
+
+    def __init__(self):
+        self.tempstr=[]
+        self.halfstr=[]
+        self.finalstr=[]
+        self.res=0
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(300, 353)
@@ -33,7 +31,7 @@ class Ui_MainWindow(object):
         self.l1.setGeometry(QtCore.QRect(0, 30, 225, 61))
         font = QtGui.QFont()
         font.setFamily("Bahnschrift SemiLight")
-        font.setPointSize(22)
+        font.setPointSize(19)
         self.l1.setFont(font)
         self.l1.setStyleSheet("background-color: rgb(180, 180, 180);border-color: rgb(0, 0, 0);")
         self.l1.setText("")
@@ -382,6 +380,26 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        self.b1.clicked.connect(lambda : self.num_press('1'))
+        self.b2.clicked.connect(lambda : self.num_press('2'))
+        self.b3.clicked.connect(lambda : self.num_press('3'))
+        self.b4.clicked.connect(lambda : self.num_press('4'))
+        self.b5.clicked.connect(lambda : self.num_press('5'))
+        self.b6.clicked.connect(lambda : self.num_press('6'))
+        self.b7.clicked.connect(lambda : self.num_press('7'))
+        self.b8.clicked.connect(lambda : self.num_press('8'))
+        self.b9.clicked.connect(lambda : self.num_press('9'))
+        self.b0.clicked.connect(lambda : self.num_press('0'))
+        self.bcl.clicked.connect(self.cl_press)
+        self.bdiv.clicked.connect(lambda : self.op_press('/'))
+        self.bmul.clicked.connect(lambda : self.op_press('*'))
+        self.bplus.clicked.connect(lambda : self.op_press('+'))
+        self.bminus.clicked.connect(lambda : self.op_press('-'))
+        self.bdot.clicked.connect(lambda : self.num_press('.'))
+        self.beq.clicked.connect(self.equals)
+        
+        
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Calculator"))
@@ -402,6 +420,46 @@ class Ui_MainWindow(object):
         self.b5.setText(_translate("MainWindow", "5"))
         self.bplus.setText(_translate("MainWindow", "+"))
         self.bdot.setText(_translate("MainWindow", "."))
+
+    def num_press(self,text):
+        self.tempstr+=text
+        self.l1.setText(''.join(self.tempstr))
+
+    def op_press(self,text):
+        if self.tempstr=='':
+            self.tempstr='0'
+        if self.halfstr:    
+            if self.halfstr[-1] in '+-*/':
+                self.halfstr[-1]=text
+        else:
+            self.halfstr+=(list(self.tempstr)+list(text))
+        self.tempstr=''
+        self.l2.setText(''.join(self.halfstr))
+        
+    def equals(self):
+        if self.tempstr=='':
+            self.tempstr='0'
+        self.finalstr+=(list(self.halfstr)+list(self.tempstr))
+        try:
+            self.res=eval(''.join(self.finalstr))
+        except:
+            self.l1.setText('Math Error. Press Cl')
+        else:
+            self.l1.setText(str(self.res))
+            self.l2.setText(''.join(self.finalstr))
+        
+        self.tempstr=[str(self.res)]
+        self.halfstr=[]
+        self.finalstr=[]
+        self.res=0
+
+    def cl_press(self):
+        self.l1.setText('')
+        self.l2.setText('')
+        self.tempstr=[]
+        self.halfstr=[]
+        self.finalstr=[]
+        self.res=0
 
 
 if __name__ == "__main__":

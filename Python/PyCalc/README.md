@@ -1,12 +1,16 @@
-#PyCalc
+# PyCalc
 
 *This is a simple calculator made using **Python** and **PyQt5**. Just a beginner project.*
 
+# Screenshot
+
+![Alt text](Screenshots/img2.png?raw=true "Title")
+
 As of now, it has following functions:
-*Addition
-*Subtraction
-*Multiplication
-*Division
+* Addition
+* Subtraction
+* Multiplication
+* Division
 
 *calc.py* file contains the source code.
 
