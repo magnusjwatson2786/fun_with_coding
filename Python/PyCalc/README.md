@@ -12,6 +12,6 @@ As of now, it has following functions:
 * Multiplication
 * Division
 
-*calc.py* file contains the source code.
+*Pycalc.py* file contains the source code.
 
 I'll try to add scientific calculations to it later.
