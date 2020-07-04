@@ -77,6 +77,8 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuFile.menuAction())
         self.a_OF.triggered.connect(self.fetchfolder)
         self.listWidget.clicked.connect(self.listItemclicked)
+        self.bnext.clicked.connect(lambda : self.prevnext(1))
+        self.bprev.clicked.connect(lambda : self.prevnext(-1))
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -123,6 +125,14 @@ class Ui_MainWindow(object):
     def listItemclicked(self):
         item1=self.listWidget.currentItem().text()
         self.imgcont.setPixmap(QtGui.QPixmap(item1))
+
+    def prevnext(self,a):
+        rx=self.listWidget.row(self.listWidget.currentItem())
+        print(rx)
+        if rx+a < self.listWidget.count() and rx+a >=0 :
+            self.listWidget.setCurrentItem(self.listWidget.item(rx+a))
+            item1 = self.listWidget.item(rx+a).text()
+            self.imgcont.setPixmap(QtGui.QPixmap(item1))
 
 if __name__ == "__main__":
     import sys
