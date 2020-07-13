@@ -14,7 +14,6 @@ class Ui_MainWindow(object):
         self.instance = vlc.Instance()
         self.media = None
         self.mediaplayer = self.instance.media_player_new()
-        #self.create_ui()
         self.is_paused = False
         self.dpath=''
         self.dirpths=[]
@@ -197,6 +196,7 @@ class Ui_MainWindow(object):
         if not filename:
             return
         self.media = self.instance.media_new(filename[0])
+        self.statusbar.showMessage(filename[0].split("/")[-1])
         self.mediaplayer.set_media(self.media)
         self.media.parse()
         if platform.system() == "Linux": 
@@ -234,7 +234,7 @@ class Ui_MainWindow(object):
             item = a.item(i)
             item.setText(_translate("MainWindow", str(dirs)))
             i+=1
-        self.statusbar.showMessage(f"{len(self.dirpths)} Media files in Playlist.")
+        self.statusbar.showMessage(f"{len(self.dirpths)} Media files added to Playlist.")
         self.hsl2.setValue(self.mediaplayer.audio_get_volume())
 
     def set_volume(self, volume):
@@ -255,6 +255,7 @@ class Ui_MainWindow(object):
     def selectfromplaylist(self):
         item1=self.listWidget.currentItem().text()
         self.media = self.instance.media_new(item1)
+        self.statusbar.showMessage(item1.split("/")[-1])
         self.mediaplayer.set_media(self.media)
         self.media.parse()
         if platform.system() == "Linux": 
