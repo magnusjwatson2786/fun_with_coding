@@ -1,7 +1,0 @@
-# depslib dependency file v1.0
-1539595870 source:c:\users\dark ace\desktop\division function\main.cpp
-	<iostream>
-	<conio.h>
-	<math.h>
-	<iomanip>
-

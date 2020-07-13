@@ -1,7 +1,0 @@
-# depslib dependency file v1.0
-1539602956 source:c:\users\dark ace\desktop\scientific calculator v2\main.cpp
-	<iostream>
-	<conio.h>
-	<iomanip>
-	<math.h>
-
