@@ -14,7 +14,7 @@ img=ig.grabclipboard()
 if img is not None:
     userprofile=os.path.join(os.environ['USERPROFILE'])
     desktopfolder = os.path.join(userprofile, 'Desktop','Screenshots')
-    if os.path.exists(desktopfolder) is not True:
+    if not os.path.exists(desktopfolder):
         os.mkdir(desktopfolder)
     tm=dt.now()
     filename='paste'+str(tm.year)+str(tm.month)+str(tm.day)+str(tm.hour)+str(tm.minute)+str(tm.second)+'.png'
