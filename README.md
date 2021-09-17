@@ -1,8 +1,8 @@
 # fun_with_coding
  
-*This repo contains all the fun(beginner) projects i have done while learning coding.*
+*This repo contains all the fun(beginner) projects i have done while learning to code.*
 
-It has projects made using multiple languages. 
+It contains projects in multiple languages. 
 
 Including C++, Java, Python. 
 
