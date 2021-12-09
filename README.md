@@ -4,6 +4,6 @@
 
 It contains projects in multiple languages. 
 
-Including C++, Java, Python. 
+Including C, C++, Java, Python. 
 
 Happy Coding :-)
