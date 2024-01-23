@@ -53,7 +53,7 @@ x=createBoard()
 setboard(x)
 goal=x.copy()
 random.shuffle(goal)
-print(x)
+#print(x)
 printBoard(x,goal)
 
 while True:
