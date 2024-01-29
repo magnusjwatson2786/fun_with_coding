@@ -5,8 +5,7 @@
 # if not, it returns "No image in clipboard."
 
 from PIL import ImageGrab as ig
-import os
-import clipboard
+import os, clipboard
 from pytesseract import pytesseract as pt
 
 pt.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract'
